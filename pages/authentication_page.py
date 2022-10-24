@@ -1,5 +1,4 @@
 from time import sleep
-from assertpy import assert_that, soft_assertions
 from selenium.webdriver.common.by import By
 
 from locators.locators import LogInLocators
@@ -34,9 +33,9 @@ class LoginPage:
     def click_sign_in(self):
         self.browser.find_element(*LogInLocators.login_button).click()
 
-    def set_user_inputs(self, email, password):
-        self.browser.find_element(*LogInLocators.login_email_box).send_keys(email)
-        self.browser.find_element(*LogInLocators.login_password_box).send_keys(password)
+    def set_user_inputs(self):
+        self.browser.find_element(*LogInLocators.login_email_box).send_keys("testDaniel@yahoo.com")
+        self.browser.find_element(*LogInLocators.login_password_box).send_keys("123456")
         self.browser.find_element(*LogInLocators.login_button).click()
 
     def return_error_message(self):

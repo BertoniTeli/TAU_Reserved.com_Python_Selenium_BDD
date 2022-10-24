@@ -24,10 +24,14 @@ class CreateAccountLocators:
 
 class AccountPageLocators:
     URL = "https://www.reserved.com/ro/ro/sales/order/history/"
+    accept_cookies_button = (By.CSS_SELECTOR, "#cookiebotDialogOkButton")
+    body_title = (By.CSS_SELECTOR, "[.orders-list__TitleText-fwoa0w-2]")
     # Comenzile mele -- buton
     order_history_button = (By.CSS_SELECTOR, '[data-testid="orderHistory"]')
+    URL_order_history = "https://www.reserved.com/ro/ro/sales/order/history"
     # Retururile mele -- buton
     return_list_button = (By.CSS_SELECTOR, '[data-testid="returns"]')
+    URL_return_list = "https://www.reserved.com/ro/ro/myaccount/return/list/"
     # Setările contului -- buton
     edit_account_button = (By.CSS_SELECTOR, '[data-testid="account"]')
     # Adrese de livrare -- buton

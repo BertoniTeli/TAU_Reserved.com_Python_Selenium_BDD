@@ -1,5 +1,4 @@
 import json
-
 import pytest
 import selenium.webdriver
 from selenium.webdriver.chrome.options import Options
@@ -26,7 +25,7 @@ def browser():
 """
 
 global driver
-CONFIG_PATH = "../../config.json"
+CONFIG_PATH = "../config.json"
 
 
 @pytest.fixture()
@@ -56,7 +55,7 @@ def browser(config):
         driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
         driver.implicitly_wait(10)
         yield driver
-        driver.quit()
+        #driver.quit()
         return driver
     elif config["browser"] == "firefox":
         # global driver
