@@ -9,21 +9,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
-"""
-@pytest.fixture
-def browser():
-    #     before tests
-    global driver
-    options = Options()
-    #options.add_argument('--headless')
-    driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
-    driver.implicitly_wait(20)
-    yield driver
-    #     quit driver ; after tests
-    driver.quit()
-    return driver
-"""
-
 global driver
 CONFIG_PATH = "../config.json"
 
@@ -55,20 +40,20 @@ def browser(config):
         driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
         driver.implicitly_wait(10)
         yield driver
-        #driver.quit()
+        driver.quit()
         return driver
+
     elif config["browser"] == "firefox":
-        # global driver
         options = FirefoxOptions()
         if config["headless_mode"] is True:
             options.headless = True
         driver = selenium.webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
         driver.implicitly_wait(10)
         yield driver
-        #driver.quit()
+        driver.quit()
         return driver
+
     elif config["browser"] == "edge":
-        # global driver
         options = EdgeOptions()
         if config["headless_mode"] is True:
             options.headless = True
@@ -76,5 +61,5 @@ def browser(config):
                                                  options=options)
         driver.implicitly_wait(10)
         yield driver
-        #driver.quit()
+        driver.quit()
         return driver
