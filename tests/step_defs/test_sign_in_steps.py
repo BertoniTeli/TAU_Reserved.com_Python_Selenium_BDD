@@ -1,12 +1,10 @@
 from pytest_bdd import scenarios, given, when, then, parsers
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.locators import MainPageLocators, LogInLocators
 from pages.login_page import LoginPage
-from pages.home_page import HomePage
 from utils.usefull_elements import SignIn
 
 scenarios('../features/test_sign_in.feature')
@@ -49,7 +47,9 @@ def check_user_stayed_on_authentication_page(browser):
 
 @then('the user is logged in as test')
 def check_user_name_displayed(browser):
-    assert HomePage(browser).get_account_name().lower() == SignIn.TEST_FIRSTNAME
+    account_name = browser.find_element(By.CSS_SELECTOR, '[data-testid="account-info-logged-true"]').text
+    account_name = str.lower(account_name)
+    assert account_name == SignIn.TEST_FIRSTNAME
 
 
 @then(parsers.cfparse('the error "{error_message}" message of "{error_type}" is displayed'))

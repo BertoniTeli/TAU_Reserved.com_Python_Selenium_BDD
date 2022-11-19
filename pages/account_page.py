@@ -42,25 +42,7 @@ class AccountPageBody:
 
     def get_button_name(self, button):
         self.browser.find_element(By.LINK_TEXT, f"{button}").get_attribute("innerHTML")
-    """
-    def get_order_history_button_name(self):
-        self.browser.find_element(*AccountPageLocators.order_history_button).click()
 
-    def get_return_list_button_name(self):
-        self.browser.find_element(*AccountPageLocators.return_list_button).click()
-
-    def get_edit_account_button_name(self):
-        self.browser.find_element(*AccountPageLocators.edit_account_button).click()
-
-    def get_address_data_button_name(self):
-        self.browser.find_element(*AccountPageLocators.address_data_button).click()
-
-    def get_invoice_data_button_name(self):
-        self.browser.find_element(*AccountPageLocators.invoice_data_button).click()
-
-    def get_logout_button_name(self):
-        self.browser.find_element(*AccountPageLocators.logout_button).click()
-    """
     def get_account_menu_buttons_name(self, button):
         if button == "Comenzile mele":
             return self.browser.find_element(*AccountPageLocators.order_history_button).text
