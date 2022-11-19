@@ -12,7 +12,7 @@ Feature: Test Account page body buttons
       | button              | name                | page                                                               |
       | Comenzile mele      | Comenzile mele      | https://www.reserved.com/ro/ro/sales/order/history                 |
       | Retururile mele     | Retururile mele     | https://www.reserved.com/ro/ro/myaccount/return/list/              |
-      | Setările contului   | Setarile contului   | https://www.reserved.com/ro/ro/customer/account/edit/              |
+      | Setările contului   | Setările contului   | https://www.reserved.com/ro/ro/customer/account/edit/              |
       | Adrese de livrare   | Adrese de livrare   | https://www.reserved.com/ro/ro/customer/account/edit/#address-data |
       | Adresă de facturare | Adresa de facturare | https://www.reserved.com/ro/ro/customer/account/edit/#address-data |
       | Delogare            | Delogare            | https://www.reserved.com/ro/ro/                                    |

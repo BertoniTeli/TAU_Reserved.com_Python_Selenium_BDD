@@ -10,7 +10,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 global driver
-CONFIG_PATH = "../config.json"
+CONFIG_PATH = "C:/Users/Xrypto/Documents/GitHub/TAU_Reserved.com_Python_Selenium_BDD/tests/config.json"
 
 
 @pytest.fixture()
@@ -21,7 +21,7 @@ def config():
 
 @pytest.fixture()
 def setup(request, config):
-    driver = browser(config)
+    # driver = browser(config)
     driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver
     if config["browser"] == "firefox":
@@ -50,7 +50,7 @@ def browser(config):
         driver = selenium.webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
         driver.implicitly_wait(10)
         yield driver
-        driver.quit()
+        # driver.quit()
         return driver
 
     elif config["browser"] == "edge":
