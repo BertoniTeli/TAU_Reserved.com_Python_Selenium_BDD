@@ -50,7 +50,7 @@ def browser(config):
         driver = selenium.webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
         driver.implicitly_wait(10)
         yield driver
-        # driver.quit()
+        driver.quit()
         return driver
 
     elif config["browser"] == "edge":

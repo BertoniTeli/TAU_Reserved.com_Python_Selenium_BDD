@@ -1,8 +1,8 @@
 from time import sleep
+
 from selenium.webdriver.common.by import By
 
 from locators.locators import LogInLocators
-from utils.usefull_elements import SignIn
 
 
 class LoginPage:
