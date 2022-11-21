@@ -20,7 +20,7 @@ class AccountPageBody:
         self.browser.find_element(*AccountPageLocators.close_newsletter_popup_button).click()
 
     def get_account_name(self):
-        self.browser.find_element(*AccountPageLocators.account_menu).text()
+        return self.browser.find_element(*AccountPageLocators.account_menu).text
 
     def click_account_menu_buttons(self, button):
         if button == "Comenzile mele":

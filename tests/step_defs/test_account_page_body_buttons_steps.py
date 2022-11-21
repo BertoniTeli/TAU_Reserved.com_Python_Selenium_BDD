@@ -18,10 +18,8 @@ def load_page(browser):
 
 @given('the user is logged in as test')
 def check_user_is_logged_in(browser):
-    account_name = browser.find_element(By.CSS_SELECTOR, "[data-testid='account-info-logged-true']").text
     # The Reserved site has a bug that alters the letters to uppercase
-    account_name = str.lower(account_name)
-    assert account_name == SignIn.TEST_FIRSTNAME
+    assert AccountPageBody(browser).get_account_name().lower() == SignIn.TEST_FIRSTNAME
     print("\n---Step 2---Given---Pass---")
 
 
@@ -43,9 +41,7 @@ def check_user_redirected_to_page(browser, page):
 def check_user_is_logged_in(browser):
     if browser.current_url == "https://www.reserved.com/ro/ro/":
         return "pass"
-    account_name = browser.find_element(By.CSS_SELECTOR, '[data-testid="account-info-logged-true"]').text
-    account_name = str.lower(account_name)
-    assert account_name == SignIn.TEST_FIRSTNAME
+    assert AccountPageBody(browser).get_account_name().lower() == SignIn.TEST_FIRSTNAME
     print("\n---Step 5---Then---Pass---")
 
 

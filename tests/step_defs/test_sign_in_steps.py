@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.locators import MainPageLocators, LogInLocators
+from pages.account_page import AccountPageBody
 from pages.login_page import LoginPage
 from utils.usefull_elements import SignIn
 
@@ -47,9 +48,7 @@ def check_user_stayed_on_authentication_page(browser):
 
 @then('the user is logged in as test')
 def check_user_name_displayed(browser):
-    account_name = browser.find_element(By.CSS_SELECTOR, '[data-testid="account-info-logged-true"]').text
-    account_name = str.lower(account_name)
-    assert account_name == SignIn.TEST_FIRSTNAME
+    assert AccountPageBody(browser).get_account_name().lower() == SignIn.TEST_FIRSTNAME
 
 
 @then(parsers.cfparse('the error "{error_message}" message of "{error_type}" is displayed'))
